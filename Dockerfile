@@ -1,0 +1,5 @@
+FROM docker.io/library/redis:7-alpine
+
+EXPOSE 6379
+
+CMD ["redis-server","--appendonly","yes"]
