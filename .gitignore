@@ -1,0 +1,34 @@
+# Binários compilados
+/chave-valor
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Artefatos de teste e cobertura
+*.test
+*.out
+coverage.txt
+
+# Dados do Redis (quando rodando localmente na raiz do projeto)
+dump.rdb
+appendonlydir/
+*.aof
+
+# Variáveis de ambiente
+.env
+.env.local
+.env.*.local
+
+# Arquivos de IDE / editores
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
