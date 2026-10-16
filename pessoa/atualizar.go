@@ -8,7 +8,7 @@ import (
 	"github.com/redis/go-redis/v9"
 )
 
-func AtualizarPessoa(contx context.Context, redisDB *redis.Client, id string, pessoa Pessoa) error {
+func AtualizarPessoa(contx context.Context, redisDB *redis.Client, id string, p Pessoa) error {
 	key := GerarKeyPessoa(id)
 
 	existe, err := redisDB.Exists(contx, key).Result()
@@ -21,7 +21,9 @@ func AtualizarPessoa(contx context.Context, redisDB *redis.Client, id string, pe
 		return fmt.Errorf("pessoa com ID %s não encontrada", id)
 	}
 
-	pessoaJSON, err := json.Marshal(pessoa)
+	p.ID = id
+
+	pessoaJSON, err := json.Marshal(p)
 	if err != nil {
 		return fmt.Errorf("serializar pessoa: %w", err)
 	}

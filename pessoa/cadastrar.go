@@ -8,11 +8,13 @@ import (
 	"github.com/redis/go-redis/v9"
 )
 
-func CadastrarPessoa(redisDb *redis.Client, pessoa Pessoa, id string, contx context.Context) error {
+func CadastrarPessoa(redisDb *redis.Client, p Pessoa, id string, contx context.Context) error {
 
 	key := GerarKeyPessoa(id)
 
-	pessoaJson, err := json.Marshal(pessoa)
+	p.ID = id
+
+	pessoaJson, err := json.Marshal(p)
 
 	if err != nil {
 		return fmt.Errorf("serializar pessoa: %w", err)

@@ -24,6 +24,6 @@ func AtualizarPessoaPeloTerminal(context context.Context, redisDB *redis.Client,
 		return err
 	}
 
-	fmt.Println("Pessoa atualizda com sucesso!")
+	fmt.Printf("Pessoa %s atualizada com sucesso!\n", id)
 	return nil
 }

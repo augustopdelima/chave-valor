@@ -26,7 +26,7 @@ func BuscarPessoaPeloTerminal(
 	}
 
 	fmt.Println("\n--- Pessoa encontrada ---")
-	fmt.Println("ID:", id)
+	fmt.Println("ID:", p.ID)
 	fmt.Println("Nome:", p.Nome)
 	fmt.Println("Data de nascimento:", p.DataNascimento)
 	fmt.Println("E-mail:", p.Email)
@@ -46,11 +46,12 @@ func ListarPessoasPeloTerminal(contxt context.Context, redisDB *redis.Client) er
 		return nil
 	}
 
-	for i, pessoa := range pessoas {
+	for i, p := range pessoas {
 		fmt.Printf("\n--- Pessoa %d ---\n", i+1)
-		fmt.Println("Nome:", pessoa.Nome)
-		fmt.Println("Data de nascimento:", pessoa.DataNascimento)
-		fmt.Println("E-mail:", pessoa.Email)
+		fmt.Println("ID:", p.ID)
+		fmt.Println("Nome:", p.Nome)
+		fmt.Println("Data de nascimento:", p.DataNascimento)
+		fmt.Println("E-mail:", p.Email)
 	}
 
 	return nil
